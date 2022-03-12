@@ -1,10 +1,27 @@
 import Head from "next/head";
 import TableComp from "../components/Table/tableComp";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 import { Box } from "@mui/material";
 export default function Home({ data }) {
   const [coinData, setcoinData] = useState(data);
+  const [page, setPage] = useState(1);
+  useEffect(() => {
+    if (page === 1) setcoinData(data);
+    else {
+      fetch(
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${page}&sparkline=false`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setcoinData(data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [page]);
+
   return (
     <div>
       <Head>
@@ -16,7 +33,13 @@ export default function Home({ data }) {
       <main style={{ margin: "auto", marginBottom: "10%" }}>
         <TableComp data={coinData} />
         <Box sx={{ width: 345, margin: "auto", mt: 3 }}>
-          <Pagination count={20} color="secondary" />
+          <Pagination
+            count={20}
+            color="secondary"
+            onChange={(event, value) => {
+              setPage(value);
+            }}
+          />
         </Box>
       </main>
     </div>
