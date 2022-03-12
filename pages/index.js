@@ -1,6 +1,10 @@
 import Head from "next/head";
 import TableComp from "../components/Table/tableComp";
+import { useState } from "react";
+import Pagination from "@mui/material/Pagination";
+import { Box } from "@mui/material";
 export default function Home({ data }) {
+  const [coinData, setcoinData] = useState(data);
   return (
     <div>
       <Head>
@@ -9,8 +13,11 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main style={{ margin: "auto" }}>
-        <TableComp data={data} />
+      <main style={{ margin: "auto", marginBottom: "10%" }}>
+        <TableComp data={coinData} />
+        <Box sx={{ width: 345, margin: "auto", mt: 3 }}>
+          <Pagination count={20} color="secondary" />
+        </Box>
       </main>
     </div>
   );
