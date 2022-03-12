@@ -1,7 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
 import TableComp from "../components/Table/tableComp";
-export default function Home() {
+export default function Home({ data }) {
   return (
     <div>
       <Head>
@@ -11,8 +10,20 @@ export default function Home() {
       </Head>
 
       <main style={{ margin: "auto" }}>
-        <TableComp />
+        <TableComp data={data} />
       </main>
     </div>
   );
+}
+export async function getStaticProps() {
+  const res = await fetch(
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false"
+  );
+  const data = await res.json();
+  return {
+    props: {
+      data,
+    },
+    revalidate: 43200,
+  };
 }
