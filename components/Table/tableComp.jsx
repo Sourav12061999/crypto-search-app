@@ -43,9 +43,9 @@ export default function TableComp() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows.map((row, index) => (
             <React.Fragment key={row.name}>
-              <TableBodyComp row={row} />
+              <TableBodyComp index={index} row={row} />
             </React.Fragment>
           ))}
         </TableBody>

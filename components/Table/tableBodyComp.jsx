@@ -1,11 +1,14 @@
 import React from "react";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
-function TableBodyComp({ row }) {
+function TableBodyComp({ row, index }) {
   return (
     <TableRow
       key={row.name}
-      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+      sx={{
+        "&:last-child td, &:last-child th": { border: 0 },
+        backgroundColor: index % 2 !== 0 ? "rgb(240, 240, 240)" : "white",
+      }}
     >
       <TableCell sx={{ fontWeight: 600 }} component="th" scope="row">
         {row.name}
