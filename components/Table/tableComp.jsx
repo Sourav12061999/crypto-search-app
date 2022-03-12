@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import Paper from "@mui/material/Paper";
 import TableRow from "@mui/material/TableRow";
 import { Typography } from "@mui/material";
+import { tableCell } from "./styles";
 import TableBodyComp from "./tableBodyComp";
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -26,11 +27,19 @@ export default function TableComp() {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Coin Name</TableCell>
-            <TableCell align="right">Price</TableCell>
-            <TableCell align="right">Marget Cap</TableCell>
-            <TableCell align="right">24H High</TableCell>
-            <TableCell align="right">24H Low</TableCell>
+            <TableCell sx={tableCell}>Coin Name</TableCell>
+            <TableCell sx={tableCell} align="center">
+              Price
+            </TableCell>
+            <TableCell sx={tableCell} align="center">
+              Marget Cap
+            </TableCell>
+            <TableCell sx={tableCell} align="center">
+              24H High
+            </TableCell>
+            <TableCell sx={tableCell} align="center">
+              24H Low
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
