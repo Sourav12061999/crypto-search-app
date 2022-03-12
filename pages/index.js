@@ -3,21 +3,26 @@ import TableComp from "../components/Table/tableComp";
 import { useState, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 import { Box } from "@mui/material";
+import Loading from "../components/Loading/loading";
 export default function Home({ data }) {
   const [coinData, setcoinData] = useState(data);
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     if (page === 1) setcoinData(data);
     else {
+      setLoading(true);
       fetch(
         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${page}&sparkline=false`
       )
         .then((res) => res.json())
         .then((data) => {
           setcoinData(data);
+          setLoading(false);
         })
         .catch((error) => {
           console.error(error);
+          setLoading(false);
         });
     }
   }, [page]);
@@ -42,6 +47,7 @@ export default function Home({ data }) {
           />
         </Box>
       </main>
+      <Loading open={loading} setOpen={setLoading} />
     </div>
   );
 }
