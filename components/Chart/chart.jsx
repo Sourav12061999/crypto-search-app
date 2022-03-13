@@ -61,8 +61,9 @@ function Charts({ chartData, coinid }) {
   }
   return (
     <Box sx={{ width: "100%", margin: "auto" }}>
-      <div>
+      <div style={{ marginBottom: "20px", paddingLeft: "60%" }}>
         <Button
+          variant="contained"
           onClick={() => {
             setchart(chartData);
             setdisableButton(1);
@@ -72,15 +73,18 @@ function Charts({ chartData, coinid }) {
           7D
         </Button>
         <Button
+          variant="contained"
           onClick={() => {
             changeChart(30, "daily");
             setdisableButton(2);
           }}
+          sx={{ mx: "10px" }}
           disabled={disableButton === 2 ? true : false}
         >
           30D
         </Button>
         <Button
+          variant="contained"
           onClick={() => {
             changeChart(180, "daily");
             setdisableButton(3);
@@ -90,15 +94,18 @@ function Charts({ chartData, coinid }) {
           6months
         </Button>
         <Button
+          variant="contained"
           onClick={() => {
             changeChart(366, "daily");
             setdisableButton(4);
           }}
+          sx={{ mx: "10px" }}
           disabled={disableButton === 4 ? true : false}
         >
           1year
         </Button>
         <Button
+          variant="contained"
           onClick={() => {
             changeChart("max", "monthly");
             setdisableButton(5);
