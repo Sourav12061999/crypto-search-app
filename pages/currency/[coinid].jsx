@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Charts from "../../components/Chart/chart";
+import CoinDetails from "../../components/Coin Details/coinDetails";
 function Coin_id({ data, chart }) {
   console.log(data);
   return (
@@ -12,6 +13,7 @@ function Coin_id({ data, chart }) {
         <link rel="icon" href={data.image.small} />
       </Head>
       <main style={{ margin: "auto" }}>
+        <CoinDetails data={data} />
         <Charts coinid={data.id} chartData={chart} />
       </main>
     </>

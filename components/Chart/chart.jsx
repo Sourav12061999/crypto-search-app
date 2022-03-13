@@ -115,19 +115,28 @@ function Charts({ chartData, coinid }) {
           max
         </Button>
       </div>
-      <LineChart
-        style={{ margin: "auto" }}
-        BarChart
-        width={1000}
-        height={500}
-        data={data}
+      <Box
+        sx={{
+          overflowX: "auto",
+          width: "100%",
+          backgroundColor: "white",
+          border: "1px solid #e0e0e0",
+          paddingY: "5%",
+        }}
       >
-        <Line type="basis" dataKey="price" stroke={stroke} dot={false} />
-        {/* <CartesianGrid stroke="#ccc" /> */}
-        <XAxis dataKey="date" />
-        <YAxis domain={[min, max]} allowDataOverflow={true} />
-        <Tooltip />
-      </LineChart>
+        <LineChart
+          style={{ margin: "auto" }}
+          BarChart
+          width={1000}
+          height={500}
+          data={data}
+        >
+          <Line type="basis" dataKey="price" stroke={stroke} dot={false} />
+          <XAxis dataKey="date" />
+          <YAxis domain={[min, max]} allowDataOverflow={true} />
+          <Tooltip />
+        </LineChart>
+      </Box>
     </Box>
   );
 }
