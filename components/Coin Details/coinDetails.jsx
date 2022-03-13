@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Paper } from "@mui/material";
 function CoinDetails({ data }) {
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" } }}>
       <Paper component={"div"} sx={{ flexGrow: 1, padding: "5%" }}>
         <p>Rank #{data.market_cap_rank}</p>
         <div>
@@ -18,7 +18,15 @@ function CoinDetails({ data }) {
         <h2>24H High:- ${data.market_data.high_24h.usd.toFixed(2)}</h2>
         <h2>24H Low:- ${data.market_data.low_24h.usd.toFixed(2)}</h2>
       </Paper>
-      <Paper component={"div"} sx={{ flexGrow: 1, padding: "5%" }}>
+      <Paper
+        component={"div"}
+        sx={{
+          flexGrow: 1,
+          padding: "5%",
+          ml: { xs: "0%", md: "2%" },
+          mt: { xs: "2%", md: "0%" },
+        }}
+      >
         <h1>Info</h1>
         <h3>
           Webside:- <p>{data.links.homepage[0]}</p>
