@@ -61,7 +61,9 @@ function Charts({ chartData, coinid }) {
   }
   return (
     <Box sx={{ width: "100%", margin: "auto" }}>
-      <div style={{ marginBottom: "20px", paddingLeft: "60%" }}>
+      <Box
+        style={{ marginBottom: "20px", paddingLeft: { md: "30%", lg: "60%" } }}
+      >
         <Button
           variant="contained"
           onClick={() => {
@@ -114,7 +116,7 @@ function Charts({ chartData, coinid }) {
         >
           max
         </Button>
-      </div>
+      </Box>
       <Box
         sx={{
           overflowX: "auto",
