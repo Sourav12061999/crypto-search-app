@@ -5,12 +5,13 @@ function SearchResult({ open }) {
     <div
       style={{
         width: "100%",
-        height: "100px",
+        height: "200px",
         position: "absolute",
         backgroundColor: "white",
         zIndex: 1000,
-        border: "1px solid gray",
+        border: "1px solid #e0e0e0",
         display: open ? "block" : "none",
+        overflowY: "auto",
       }}
     >
       SearchResult
