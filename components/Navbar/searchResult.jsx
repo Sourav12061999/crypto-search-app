@@ -1,7 +1,6 @@
 import React from "react";
-
+import SearchCard from "./searchCard";
 function SearchResult({ open, searchData }) {
-  console.log(searchData);
   return (
     <div
       style={{
@@ -15,7 +14,11 @@ function SearchResult({ open, searchData }) {
         overflowY: "auto",
       }}
     >
-      SearchResult
+      {searchData.map((el) => (
+        <React.Fragment>
+          <SearchCard coin={el} />
+        </React.Fragment>
+      ))}
     </div>
   );
 }
