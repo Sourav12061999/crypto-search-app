@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
+import SearchResult from "./searchResult";
 function Searchbar() {
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
@@ -45,16 +46,28 @@ function Searchbar() {
       },
     },
   }));
+  const [open, setOpen] = useState(false);
+
   return (
-    <Search>
-      <SearchIconWrapper>
-        <SearchIcon />
-      </SearchIconWrapper>
-      <StyledInputBase
-        placeholder="Search…"
-        inputProps={{ "aria-label": "search" }}
-      />
-    </Search>
+    <>
+      <Search>
+        <SearchIconWrapper>
+          <SearchIcon />
+        </SearchIconWrapper>
+        <StyledInputBase
+          placeholder="Search…"
+          inputProps={{ "aria-label": "search" }}
+          autoFocus={open ? true : false}
+          onFocus={() => {
+            setOpen(true);
+          }}
+          onBlur={() => {
+            setOpen(false);
+          }}
+        />
+        <SearchResult open={open} setOpen={setOpen} />
+      </Search>
+    </>
   );
 }
 
