@@ -1,14 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 
 function useDebounce(interval, setState) {
-  let timeoutvalVariable = null;
-  async function dataFetch(url) {
-    if (timeoutvalVariable) {
-      clearInterval(timeoutvalVariable);
-    }
-
-    intervalVariable = setTimeout(() => {
-      timeoutvalVariable = null;
+  let timeoutvalVariable = useRef(null);
+  function dataFetch(url) {
+    console.log(timeoutvalVariable);
+    clearTimeout(timeoutvalVariable.current);
+    timeoutvalVariable.current = setTimeout(() => {
       fetch(url)
         .then((res) => res.json())
         .then((res) => {
@@ -19,7 +16,6 @@ function useDebounce(interval, setState) {
         });
     }, interval);
   }
-
   return dataFetch;
 }
 

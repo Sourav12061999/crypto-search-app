@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import SearchResult from "./searchResult";
+import useDebounce from "../../Hooks/useDebounce";
 function Searchbar() {
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
@@ -47,6 +48,15 @@ function Searchbar() {
     },
   }));
   const [open, setOpen] = useState(false);
+  const [searchData, setSearchData] = useState([]);
+  const [searchParam, setsearchParam] = useState("");
+  const dataFetch = useDebounce(500, setSearchData);
+
+  useEffect(() => {
+    if (searchParam && searchParam.length && open) {
+      dataFetch(`/api/${searchParam}`);
+    }
+  }, [searchParam]);
 
   return (
     <>
@@ -64,8 +74,12 @@ function Searchbar() {
           onBlur={() => {
             setOpen(false);
           }}
+          value={searchParam}
+          onChange={(event) => {
+            setsearchParam(event.target.value);
+          }}
         />
-        <SearchResult open={open} setOpen={setOpen} />
+        <SearchResult open={open} searchData={searchData} setOpen={setOpen} />
       </Search>
     </>
   );

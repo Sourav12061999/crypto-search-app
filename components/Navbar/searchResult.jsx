@@ -1,6 +1,7 @@
 import React from "react";
 
-function SearchResult({ open }) {
+function SearchResult({ open, searchData }) {
+  console.log(searchData);
   return (
     <div
       style={{
