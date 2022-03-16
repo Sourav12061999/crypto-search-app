@@ -15,7 +15,7 @@ function SearchResult({ open, searchData }) {
       }}
     >
       {searchData.map((el) => (
-        <React.Fragment>
+        <React.Fragment key={el.id}>
           <SearchCard coin={el} />
         </React.Fragment>
       ))}
