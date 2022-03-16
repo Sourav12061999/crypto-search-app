@@ -29,7 +29,7 @@ function Charts({ chartData, coinid }) {
   const [chart, setchart] = useState(chartData);
   const [disableButton, setdisableButton] = useState(1);
   let data = [];
-  if (chart?.prices[0][1] > chart.prices[chart?.prices.length - 1][1]) {
+  if (chart?.prices[0][1] > chart?.prices[chart?.prices.length - 1][1]) {
     stroke = "#F44336";
   }
   let min = null;
