@@ -34,7 +34,7 @@ function Charts({ chartData, coinid }) {
   }
   let min = null;
   let max = 0;
-  chart.prices.forEach((element) => {
+  chart?.prices.forEach((element) => {
     let obj = {};
     let d = new Date(element[0]);
     let year = d.getFullYear();
