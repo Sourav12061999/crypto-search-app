@@ -1,34 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# This is a Crypto currency search and trading  app
+The website can be seen live from [here](https://crypto-search-app-4wlulxn3v-sourav12061999.vercel.app/)
 
-## Getting Started
+## Packages Used
+1. Next JS
+2. Mongoose
+3. Material UI
+4. React Icons
 
-First, run the development server:
+## Features
+### 1. Get crypto Currenncy list in Static Site generation
+   ![random](https://next-js-blog-codebash.s3.us-east-2.amazonaws.com/listOfCurrency.png)
+This will show the most popular movies in a 3D environment. The poster can be seen from different angles.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### 2. API based pagination
+   ![search](https://next-js-blog-codebash.s3.us-east-2.amazonaws.com/pagination.png)
+Pagination and loding functionality with material ui and API's.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Search With Debouncing
+![details](https://next-js-blog-codebash.s3.us-east-2.amazonaws.com/debouncing.png)
+ Search functionality with mongoose + regex and Debouncing
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### 4. A Currency Detail And Chart Page
+![chart](https://next-js-blog-codebash.s3.us-east-2.amazonaws.com/chart.png)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+An api based Currency details page with chart functionality
